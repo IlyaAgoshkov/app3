@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">lab3app</string>
+    <string name="preference_key_university_list">university_list</string>
+    <string name="preference_key_faculty_list">faculty_list</string>
+</resources>
