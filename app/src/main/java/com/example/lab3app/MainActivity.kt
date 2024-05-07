@@ -9,6 +9,7 @@ import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import com.example.lab3app.data.Student
 import com.example.lab3app.fragments.FacultyListFragment
+import com.example.lab3app.fragments.GroupsFragment
 import com.example.lab3app.fragments.UniversityListFragment
 import com.example.lab3app.fragments.UpdateActivity
 import com.example.lab3app.repository.UniversityRepository
@@ -32,6 +33,9 @@ class MainActivity : AppCompatActivity(), UpdateActivity {
     private var _miNewUniversity: MenuItem? = null
     private var _miUpdateUniversity: MenuItem? = null
     private var _miDeleteUniversity: MenuItem? = null
+    private var _miNewGroup: MenuItem? = null
+    private var _miUpdateGroup: MenuItem? = null
+    private var _miDeleteGroup: MenuItem? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -66,6 +70,9 @@ class MainActivity : AppCompatActivity(), UpdateActivity {
         _miNewUniversity = menu?.findItem(R.id.miNewUniversity)
         _miUpdateUniversity = menu?.findItem(R.id.miUpdateUniversity)
         _miDeleteUniversity = menu?.findItem(R.id.miDeleteUniversity)
+        _miNewGroup = menu?.findItem(R.id.miNewUniversity)
+        _miUpdateGroup = menu?.findItem(R.id.miUpdateUniversity)
+        _miDeleteGroup = menu?.findItem(R.id.miDeleteUniversity)
         return true
     }
 
@@ -85,6 +92,23 @@ class MainActivity : AppCompatActivity(), UpdateActivity {
 
             R.id.miDeleteUniversity -> {
                 val fedit: Edit = UniversityListFragment.getInstance()
+                fedit.delete()
+                true
+            }
+            R.id.miNewGroup -> {
+                val fedit: Edit = GroupsFragment.getInstance()
+                fedit.append()
+                true
+            }
+
+            R.id.miUpdateGroup -> {
+                val fedit: Edit = GroupsFragment.getInstance()
+                fedit.update()
+                true
+            }
+
+            R.id.miDeleteGroup -> {
+                val fedit: Edit = GroupsFragment.getInstance()
                 fedit.delete()
                 true
             }
@@ -108,6 +132,7 @@ class MainActivity : AppCompatActivity(), UpdateActivity {
         when (fragmentID) {
             universityID -> setFragment(UniversityListFragment.getInstance())
             facultyId -> setFragment(FacultyListFragment.getInstance())
+            groupID -> setFragment(GroupsFragment.getInstance())
         }
     }
 
@@ -120,5 +145,8 @@ class MainActivity : AppCompatActivity(), UpdateActivity {
         _miNewUniversity?.isVisible=currentFragmentID==universityID
         _miDeleteUniversity?.isVisible=currentFragmentID==universityID
         _miUpdateUniversity?.isVisible=currentFragmentID==universityID
+        _miNewGroup?.isVisible=currentFragmentID==groupID
+        _miDeleteGroup?.isVisible=currentFragmentID==groupID
+        _miUpdateGroup?.isVisible=currentFragmentID==groupID
     }
 }

@@ -5,11 +5,26 @@
     <item
         android:id="@+id/miNewUniversity"
         android:icon="@android:drawable/ic_input_add"
-        android:title="Добавить университет" />
+        android:title="@string/NewUniversity" />
     <item
         android:id="@+id/miUpdateUniversity"
-        android:title="Изменить" />
+        android:title="@string/UpdateUniversuty" />
     <item
         android:id="@+id/miDeleteUniversity"
-        android:title="Удалить" />
+        android:title="@string/DeleteUniversity" />
+    <item
+        android:id="@+id/miNewGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/NewGroup" />
+    <item
+        android:id="@+id/miUpdateGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/UpdateGroup" />
+    <item
+        android:id="@+id/miDeleteGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="@string/DeleteGroup" />
 </menu>
